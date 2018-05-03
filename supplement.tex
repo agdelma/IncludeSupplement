@@ -1,0 +1,44 @@
+\documentclass[10pt,twocolumn,prl,aps,floatfix,superscriptaddress,longbibliography]{revtex4-1}
+
+% Supplemental Material 
+
+\usepackage{lipsum} % lorem ipsum text
+
+%%%%%%%%%% Prefix a "S" to all counters and reset the counter %%%%%%%%%%
+\setcounter{equation}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\makeatletter
+\renewcommand{\theequation}{S\arabic{equation}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\bibnumfmt}[1]{[S#1]}
+\renewcommand{\citenumfont}[1]{S#1}
+%%%%%%%%%% Prefix a "S" to all counters and reset the counter %%%%%%%%%%
+
+\begin{document}
+
+% BEGIN SUPPLEMENTARY MATERIAL 
+\clearpage
+\pagebreak
+\setcounter{page}{1}
+\onecolumngrid
+\widetext
+\begin{center}
+    \textbf{{\large Supplemental Material for: ``Combining supplemental material into your manuscript as a separate pdf
+    file suitable for posting to the arXiv''}}\\[1em]
+    Adrian Del Maestro
+\end{center}
+
+\lipsum[1-2]
+
+\begin{equation}
+    a = b + c
+\end{equation}
+
+\lipsum*[3-6]\cite{Sengupta:2017tl}\\
+
+\lipsum*[7-12]\cite{Barghathi:2018rg}
+
+\bibliography{refs}
+\end{document}
