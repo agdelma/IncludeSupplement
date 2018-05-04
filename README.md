@@ -6,7 +6,7 @@ This repository includes information on how to include a supplemental materials 
 
 ## Method
 
-Place the following in your main `manuscript.tex` file
+Place the following in the header of your main `manuscript.tex` file
 
     \usepackage{pdfpages} % include pdfs
     \usepackage{pgffor}   % for loops
