@@ -21,17 +21,21 @@
 \usepackage{pdfpages} % include pdfs
 \usepackage{pgffor} % for loops
 
-% This deals with a pdfpages rotation bug with revtex
+% Fix for a pdfpages rotation bug with revtex
 \makeatletter
 \AtBeginDocument{\let\LS@rot\@undefined}
 \makeatother
 
-% Determine the number of pages in the supplement file
+% the name of the supplement PDF file
 \def\supplementfilename{supplement.pdf}
+
+% Determine the number of pages 
+% in the supplement file and store
 \pdfximage{\supplementfilename}
 \def\numbersupplementpages{\the\pdflastximagepages}
 
-% Are we submitting to the arXiv? Un-coment the appropriate line
+% Are we submitting to the arXiv? 
+% Un-coment the appropriate line
 \newif\ifarXiv
 \arXivtrue 
 % \arXivfalse
@@ -69,26 +73,26 @@ The header of the main manuscript file should include the following packages,
 %
 \begin{lstlisting}
 \usepackage{pdfpages} % include pdfs
-\usepackage{pgffor}   % for loops
+\usepackage{pgffor} % for loops
 
-% A fix for revtex-pdfpages rotation bug 
+% Fix for a pdfpages rotation bug with revtex
 \makeatletter
 \AtBeginDocument{\let\LS@rot\@undefined}
 \makeatother
 
-% Determine the number of pages in the 
-% supplement file
+% the name of the supplement PDF file
 \def\supplementfilename{supplement.pdf}
+
+% Determine the number of pages 
+% in the supplement file and store
 \pdfximage{\supplementfilename}
 \def\numbersupplementpages{\the\pdflastximagepages}
 
 % Are we submitting to the arXiv? 
+% Un-coment the appropriate line
 \newif\ifarXiv
-
-% Un-comment the appropriate line
 \arXivtrue 
 % \arXivfalse
-
 \end{lstlisting}
 %
 where \texttt{pdfpages} facilitates the inclusion of external multi-page PDF
@@ -97,9 +101,9 @@ to write simple for loops.  The bug fix for dealing with page rotation on lines
 4-7 was found here \cite{rotate}. For convenience we define two variables
 \verb!\supplementfilename! and \verb!\numbersupplementpages! to store the name
 and number of pages of the supplement file pdf (\texttt{supplement.pdf} here).
-We compute the number of pages in line 12. Line 16 defines a new variable which
+We compute the number of pages in line 14. Line 19 defines a new variable which
 we use to control whether or not to include the supplement which we set to true
-in line 19.  One can comment line 19 and uncomment line 20 if the supplement
+in line 20.  One can comment line 20 and uncomment line 21 if the supplement
 does not need to be included (\emph{i.e.}~for journal submission).
 
 After generating the appropriate \texttt{supplement.pdf} with

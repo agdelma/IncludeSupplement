@@ -11,17 +11,21 @@ Place the following in the header of your main `manuscript.tex` file
     \usepackage{pdfpages} % include pdfs
     \usepackage{pgffor} % for loops
     
-    % This deals with a pdfpages rotation bug with revtex
+    % Fix for a pdfpages rotation bug with revtex
     \makeatletter
     \AtBeginDocument{\let\LS@rot\@undefined}
     \makeatother
     
-    % Determine the number of pages in the supplement file
+    % the name of the supplement PDF file
     \def\supplementfilename{supplement.pdf}
+    
+    % Determine the number of pages 
+    % in the supplement file and store
     \pdfximage{\supplementfilename}
     \def\numbersupplementpages{\the\pdflastximagepages}
     
-    % Are we submitting to the arXiv? Un-coment the appropriate line
+    % Are we submitting to the arXiv? 
+    % Un-coment the appropriate line
     \newif\ifarXiv
     \arXivtrue 
     % \arXivfalse
