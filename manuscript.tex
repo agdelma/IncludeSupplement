@@ -1,5 +1,23 @@
 \documentclass[10pt,twocolumn,prl,aps,floatfix,superscriptaddress,longbibliography]{revtex4-1}
 
+% for pretty printing LaTeX code
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset
+{
+    language=[LaTeX]TeX,
+    breaklines=true,
+    basicstyle=\tt\scriptsize,
+    keywordstyle=\color[HTML]{0080ff},
+    identifierstyle=\color[HTML]{87a96b},
+    commentstyle=\color{gray}, 
+    stringstyle=\ttfamily\color{red},
+    numbers=left,
+    numbersep=1.0ex,
+    numberstyle=\tiny\color{gray},
+}
+
 \usepackage{pdfpages} % include pdfs
 \usepackage{pgffor} % for loops
 
@@ -7,6 +25,16 @@
 \makeatletter
 \AtBeginDocument{\let\LS@rot\@undefined}
 \makeatother
+
+% Determine the number of pages in the supplement file
+\def\supplementfilename{supplement.pdf}
+\pdfximage{\supplementfilename}
+\def\numbersupplementpages{\the\pdflastximagepages}
+
+% Are we submitting to the arXiv? Un-coment the appropriate line
+\newif\ifarXiv
+\arXivtrue 
+% \arXivfalse
 
 \begin{document}
 
@@ -36,11 +64,10 @@ Here I present a solution to this problem based on an answer posted on
 \LaTeX~Stack Exchange \cite{tex} that I have recently used in two arXiv
 posting \cite{Sengupta:2017tl, Barghathi:2018rg}.
 
-The header of the main manuscript file should include the following packages
-and code:
+The header of the main manuscript file should include the following packages,
+ code and definitions:
 %
-\begin{verbatim}
-
+\begin{lstlisting}
 \usepackage{pdfpages} % include pdfs
 \usepackage{pgffor}   % for loops
 
@@ -48,42 +75,66 @@ and code:
 \makeatletter
 \AtBeginDocument{\let\LS@rot\@undefined}
 \makeatother
-\end{verbatim}
+
+% Determine the number of pages in the 
+% supplement file
+\def\supplementfilename{supplement.pdf}
+\pdfximage{\supplementfilename}
+\def\numbersupplementpages{\the\pdflastximagepages}
+
+% Are we submitting to the arXiv? 
+\newif\ifarXiv
+
+% Un-comment the appropriate line
+\arXivtrue 
+% \arXivfalse
+
+\end{lstlisting}
 %
 where \texttt{pdfpages} facilitates the inclusion of external multi-page PDF
 files in \LaTeX~documents \cite{pdfpages} and \texttt{pgffor} allows one
-to write simple for loops.  The bug fix for dealing with page rotation was
-found here \cite{rotate}.
+to write simple for loops.  The bug fix for dealing with page rotation on lines
+4-7 was found here \cite{rotate}. For convenience we define two variables
+\verb!\supplementfilename! and \verb!\numbersupplementpages! to store the name
+and number of pages of the supplement file pdf (\texttt{supplement.pdf} here).
+We compute the number of pages in line 12. Line 16 defines a new variable which
+we use to control whether or not to include the supplement which we set to true
+in line 19.  One can comment line 19 and uncomment line 20 if the supplement
+does not need to be included (\emph{i.e.}~for journal submission).
 
-After generating the appropriate \texttt{supplement.pdf} with $N$ pages using a
+After generating the appropriate \texttt{supplement.pdf} with
+\verb!\numbersupplementpages! pages using a
 separate latex file, one can then include it at the end of the manuscript
-(after \texttt{\textbackslash bibliography\{refs\}} but before \texttt{\textbackslash end\{document\}}) via the
-following code:
+(after \texttt{\textbackslash bibliography\{refs\}} but before 
+\texttt{\textbackslash end\{document\}}) via the following loop: \\ 
 %
-\begin{verbatim}
-\foreach \x in {1,...,N} 
-{
-\clearpage
-\includepdf[pages={\x,{}}]{supplement.pdf}
-}
-\end{verbatim}
+\begin{lstlisting}
+\ifarXiv
+    \foreach \x in {1,...,\numbersupplementpages}
+    {
+        \clearpage
+        \includepdf[pages={\x,{}}]{\supplementfilename}
+    }
+\fi
+\end{lstlisting}
 %
-where $N$ should be replaced with the number of pages in your PDF file.   See
-the included \texttt{supplement.tex} file for details on how to add unique
-labels to equation and references.
+See the included \texttt{supplement.tex} file for details on how to add unique
+labels to equations and references.
 
 The arXiv submission should include \texttt{manuscript.tex},
 (\texttt{manuscript.bbl} if using \texttt{bibtex}) and
 \texttt{supplement.pdf} while for the journal submission, you can simply
-comment out the above block of code in the manuscript file. 
+set \verb!\arXivfalse! in the header.
 
 \bibliography{refs}
 
+\ifarXiv
+    \foreach \x in {1,...,\numbersupplementpages}
+    {
+        \clearpage
+        \includepdf[pages={\x,{}}]{\supplementfilename}
+    }
+\fi
 
-\foreach \x in {1,...,2}
-{
-\clearpage
-\includepdf[pages={\x,{}}]{supplement.pdf}
-}
 
 \end{document}
