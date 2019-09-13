@@ -50,27 +50,33 @@
 \providecommand \BibitemShut  [1]{\csname bibitem#1\endcsname}%
 \let\auto@bib@innerbib\@empty
 %</preamble>
-\bibitem [{\citenamefont {{Sengupta}}\ \emph {et~al.}(2017)\citenamefont
-  {{Sengupta}}, \citenamefont {{Nichols}}, \citenamefont {{Del Maestro}},\ and\
-  \citenamefont {{Kotov}}}]{Sengupta:2017tl}%
+\bibitem [{\citenamefont {Sengupta}\ \emph {et~al.}(2018)\citenamefont
+  {Sengupta}, \citenamefont {Nichols}, \citenamefont {Del~Maestro},\ and\
+  \citenamefont {Kotov}}]{Sengupta:2018pv}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
-  {{Sengupta}}}, \bibinfo {author} {\bibfnamefont {N.~S.}\ \bibnamefont
-  {{Nichols}}}, \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont {{Del
-  Maestro}}}, \ and\ \bibinfo {author} {\bibfnamefont {V.~N.}\ \bibnamefont
-  {{Kotov}}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Theory of
-  liquid film growth and wetting instabilities on graphene}},}\ }\href
-  {https://arxiv.org/abs/1711.09901} {\  (\bibinfo {year} {2017})},\ \Eprint
-  {http://arxiv.org/abs/1711.09901} {arXiv:1711.09901} \BibitemShut {NoStop}%
-\bibitem [{\citenamefont {{Barghathi}}\ \emph {et~al.}(2018)\citenamefont
-  {{Barghathi}}, \citenamefont {{Herdman}},\ and\ \citenamefont {{Del
-  Maestro}}}]{Barghathi:2018rg}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Sanghita}\
+  \bibnamefont {Sengupta}}, \bibinfo {author} {\bibfnamefont {Nathan~S.}\
+  \bibnamefont {Nichols}}, \bibinfo {author} {\bibfnamefont {Adrian}\
+  \bibnamefont {Del~Maestro}}, \ and\ \bibinfo {author} {\bibfnamefont
+  {Valeri~N.}\ \bibnamefont {Kotov}},\ }\bibfield  {title} {\enquote {\bibinfo
+  {title} {{T}heory of {L}iquid {F}ilm {G}rowth and {W}etting {I}nstabilities
+  on {G}raphene},}\ }\href {\doibase 10.1103/physrevlett.120.236802} {\bibfield
+   {journal} {\bibinfo  {journal} {Phys. Rev. Lett.}\ }\textbf {\bibinfo
+  {volume} {120}},\ \bibinfo {pages} {236802} (\bibinfo {year} {2018})},\
+  \bibinfo {note} {\url{https://arxiv.org/abs/1711.09901}}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Barghathi}\ \emph {et~al.}(2018)\citenamefont
+  {Barghathi}, \citenamefont {Herdman},\ and\ \citenamefont {{Del
+  Maestro}}}]{Barghathi:2018cu}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {H.}~\bibnamefont
-  {{Barghathi}}}, \bibinfo {author} {\bibfnamefont {C.~M.}\ \bibnamefont
-  {{Herdman}}}, \ and\ \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont {{Del
-  Maestro}}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{R\'enyi
-  generalization of the operational entanglement entropy}},}\ }\href
-  {https://arxiv.org/abs/1804.01114} {\  (\bibinfo {year} {2018})},\ \Eprint
-  {http://arxiv.org/abs/1804.01114} {arXiv:1804.01114} \BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Hatem}\ \bibnamefont
+  {Barghathi}}, \bibinfo {author} {\bibfnamefont {C.~M.}\ \bibnamefont
+  {Herdman}}, \ and\ \bibinfo {author} {\bibfnamefont {Adrian}\ \bibnamefont
+  {{Del Maestro}}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{R}{\'e}nyi {G}eneralization of the {A}ccessible {E}ntanglement
+  {E}ntropy},}\ }\href {\doibase 10.1103/physrevlett.121.150501} {\bibfield
+  {journal} {\bibinfo  {journal} {Phys. Rev. Lett.}\ }\textbf {\bibinfo
+  {volume} {121}},\ \bibinfo {pages} {150501} (\bibinfo {year} {2018})},\
+  \bibinfo {note} {\url{https://arxiv.org/abs/1804.01114}}\BibitemShut
+  {NoStop}%
 \end{thebibliography}%
