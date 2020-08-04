@@ -2,7 +2,6 @@
 
 % Supplemental Material 
 
-\usepackage{lipsum} % lorem ipsum text
 
 %%%%%%%%%% Prefix a "S" to all counters and reset the counter %%%%%%%%%%
 \setcounter{equation}{0}
@@ -16,6 +15,22 @@
 \renewcommand{\citenumfont}[1]{S#1}
 %%%%%%%%%% Prefix a "S" to all counters and reset the counter %%%%%%%%%%
 
+% must include hyperref here due to xr bug
+% see: https://tex.stackexchange.com/questions/122976/format-ref-output-from-enumeration-item-to-not-include-section-name
+\usepackage{hyperref}
+
+%%% For referencing the main text
+\usepackage{xr} % referencing between files
+
+% the name of the main .tex file
+\def\manuscriptfilename{manuscript}
+
+% define as external document for referencing
+\externaldocument[main:]{\manuscriptfilename}
+%%% 
+
+\usepackage{lipsum} % lorem ipsum text
+
 \begin{document}
 
 % BEGIN SUPPLEMENTARY MATERIAL 
@@ -25,21 +40,19 @@
 \onecolumngrid
 \widetext
 \begin{center}
-    \textbf{{\large Supplemental Material for: ``Combining supplemental material into your manuscript as a separate pdf
-    file suitable for posting to the arXiv''}}\\[1em]
+    \textbf{{\large Supplemental Material for: ``Combining supplemental material into your manuscript as a separate pdf file suitable for posting to the arXiv''}}\\[1em]
     Adrian Del Maestro
 \end{center}
 
-\lipsum[1-2]
-
+We can define equations in the supplement with specific labels that can also be directly cited from the main text:
 \begin{equation}
     a = b + c
     \label{eq:abc}
 \end{equation}
+and the formatting also works with references \cite{Sengupta:2018pv,Barghathi:2018cu}
 
-\lipsum*[3-6]\cite{Sengupta:2018pv}\\
+We can also cite equations in the main manuscript file via: \verb!\ref{main:eq:bessel}!, for example, see Eq.~(\ref{main:eq:bessel}) in the main text.
 
-\lipsum*[7-12]\cite{Barghathi:2018cu}
 
 \bibliography{refs}
 \end{document}

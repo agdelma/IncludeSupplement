@@ -128,7 +128,15 @@ The arXiv submission should include \texttt{manuscript.tex},
 \texttt{supplement.pdf} while for the journal submission, you can simply
 set \verb!\arXivfalse! in the header.
 
-Document elements (equations, sections, figures, etc.) in the supplement can be referenced in the main document by prepending a \texttt{supp:} to the label, i.e. \verb!\ref{supp:eq:abc}! refers to Eq.~(\ref{supp:eq:abc}).
+Document elements (equations, sections, figures, etc.) in the supplement can be referenced in the main document by prepending a \texttt{supp:} to the label, i.e. \verb!\ref{supp:eq:abc}! refers to Eq.~(\ref{supp:eq:abc}). If we include an equation in the main text:
+%
+\begin{equation}
+    J_n(x) = \frac{1}{\pi}\int_0^\pi \cos (n \tau - x \sin \tau) d\tau
+\label{eq:bessel}
+\end{equation}
+%
+it can also be uniquely referenced back from the supplement via \verb!\ref{main:eq:bessel}!.
+
 
 \bibliography{refs}
 
