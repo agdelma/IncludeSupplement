@@ -54,3 +54,4 @@ where `\numbersupplementpages` is the automatically determined number of pages i
 
 ## TODO
 - Replace `pgffor` package with plain TeX loop
+- Integrate instructions for using this with overleaf: https://www.overleaf.com/learn/how-to/Cross_referencing_with_the_xr_package_in_Overleaf
